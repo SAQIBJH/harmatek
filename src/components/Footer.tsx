@@ -18,11 +18,11 @@ const Footer = () => {
             >
               <img
                 src={harmtekLogo}
-                alt="HarmTek Logo"
+                alt="HarmaTek Logo"
                 className="h-12 w-12 rounded-full object-cover ring-2 ring-primary/30"
               />
               <span className="text-2xl font-display font-bold text-gradient-gold">
-                HarmTek
+                HarmaTek
               </span>
             </motion.a>
             <p className="text-muted-foreground max-w-sm mb-6">
@@ -96,7 +96,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} HarmTek. All rights reserved.
+            © {currentYear} HarmaTek. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <a href="#" className="hover:text-primary transition-colors">

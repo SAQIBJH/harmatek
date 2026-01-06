@@ -11,31 +11,31 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>HarmTek | Forklift Safety & Collision Avoidance Systems</title>
+        <title>HarmaTek | Forklift Safety & Collision Avoidance Systems</title>
         <meta
           name="description"
-          content="HarmTek provides industry-leading forklift collision avoidance systems and telematics solutions. Enhance workplace safety and productivity with our advanced FCAS technology."
+          content="HarmaTek provides industry-leading forklift collision avoidance systems and telematics solutions. Enhance workplace safety and productivity with our advanced FCAS technology."
         />
         <meta
           name="keywords"
-          content="forklift safety, collision avoidance system, FCAS, telematics, warehouse safety, material handling, fleet management, HarmTek"
+          content="forklift safety, collision avoidance system, FCAS, telematics, warehouse safety, material handling, fleet management, HarmaTek"
         />
-        <meta name="author" content="HarmTek" />
+        <meta name="author" content="HarmaTek" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://harmtek.co" />
+        <link rel="canonical" href="https://harmatek.co" />
         
         {/* Open Graph / Social Media */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="HarmTek | Forklift Safety & Collision Avoidance Systems" />
+        <meta property="og:title" content="HarmaTek | Forklift Safety & Collision Avoidance Systems" />
         <meta
           property="og:description"
           content="Advanced forklift collision avoidance and telematics solutions for safer, more productive warehouses."
         />
-        <meta property="og:site_name" content="HarmTek" />
+        <meta property="og:site_name" content="HarmaTek" />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="HarmTek | Forklift Safety Systems" />
+        <meta name="twitter:title" content="HarmaTek | Forklift Safety Systems" />
         <meta
           name="twitter:description"
           content="Industry-leading collision avoidance and safety solutions for material handling."
