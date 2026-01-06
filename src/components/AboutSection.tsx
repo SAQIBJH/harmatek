@@ -25,14 +25,14 @@ const AboutSection = () => {
             transition={{ duration: 0.6 }}
           >
             <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-4">
-              About HarmTek
+              About HarmaTek
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6">
               Pioneering{" "}
               <span className="text-gradient-gold">Workplace Safety</span>
             </h2>
             <p className="text-muted-foreground text-lg mb-6">
-              Established in 2022, HarmTek is an Australian innovator committed
+              Established in 2022, HarmaTek is an Australian innovator committed
               to elevating safety and productivity standards within the material
               handling industry.
             </p>

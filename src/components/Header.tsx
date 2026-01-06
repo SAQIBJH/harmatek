@@ -45,11 +45,11 @@ const Header = () => {
           >
             <img
               src={harmtekLogo}
-              alt="HarmTek Logo"
+              alt="HarmaTek Logo"
               className="h-12 w-12 rounded-full object-cover ring-2 ring-primary/30"
             />
             <span className="text-2xl font-display font-bold text-gradient-gold">
-              HarmTek
+              HarmaTek
             </span>
           </motion.a>
 
