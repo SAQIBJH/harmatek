@@ -20,7 +20,7 @@ const Contact = () => {
             <div className="min-h-screen bg-background relative overflow-hidden flex flex-col">
                 <Header />
 
-                <main className="flex-grow pt-24 pb-16">
+                <main className="flex-grow pt-24 pb-4">
                     <div className="container mx-auto px-4 md:px-8">
                         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 items-start">
 
