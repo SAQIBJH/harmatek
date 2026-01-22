@@ -12,7 +12,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-2">
             <motion.a
-              href="#home"
+              href="/"
               className="flex items-center gap-3 mb-4"
               whileHover={{ scale: 1.02 }}
             >
@@ -30,7 +30,7 @@ const Footer = () => {
               handling industry. Making advanced safety accessible for all.
             </p>
             <div className="flex gap-4">
-              <a
+              {/* <a
                 href="https://linkedin.com/company/harmtech"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -38,9 +38,9 @@ const Footer = () => {
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-              </a>
+              </a> */}
               <a
-                href="mailto:info@harmtek.co"
+                href="mailto:sm@harmtek.sa"
                 className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover:bg-primary/20 transition-colors group"
                 aria-label="Email"
               >

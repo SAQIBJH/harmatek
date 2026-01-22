@@ -75,14 +75,14 @@ const ProductCard = ({
         </ul>
 
         {/* CTA */}
-        <motion.button
+        {/* <motion.button
           className="flex items-center gap-2 text-primary font-medium group/btn"
           whileHover={{ x: 5 }}
           whileTap={{ scale: 0.98 }}
         >
           Learn More
           <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-        </motion.button>
+        </motion.button> */}
       </div>
 
       {/* Corner accent */}

@@ -2,8 +2,10 @@ import { motion } from "framer-motion";
 import { Shield, Zap, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-warehouse.png";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
   return (
     <section
       id="home"
@@ -63,16 +65,19 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-wrap gap-4 mb-12"
           >
-            <Button size="lg" className="text-lg px-8 shadow-gold">
+            <Button size="lg" className="text-lg px-8 shadow-gold"
+            onClick={() => navigate("/products")}
+            >
+
               Explore Solutions
             </Button>
-            <Button
+            {/* <Button
               variant="outline"
               size="lg"
               className="text-lg px-8 border-primary/50 hover:bg-primary/10"
             >
               Watch Demo
-            </Button>
+            </Button> */}
           </motion.div>
 
           {/* Stats */}
