@@ -58,11 +58,16 @@ const Contact = () => {
                                     <h2 className="text-3xl font-bold text-white mb-6">
                                         Harma Tek
                                     </h2>
-
+ <div className="space-y-2 mb-8 font-semibold text-[#D97706] text-lg">
+                                    
+                                        <p className="text-white text-base">
+                                            Specialized in maintaining machine production lines and installing electronic cards
+                                        </p>
+                                    </div>
                                     {/* Phone Numbers */}
                                     <div className="flex justify-center items-center gap-3 mb-6">
                                         <Smartphone className="w-8 h-8 text-[#F59E0B] flex-shrink-0" />
-                                        <div className="text-left font-bold text-white text-base leading-relaxed flex gap-4 justify-center items-center">
+                                        <div className="text-left font-bold text-white text-base leading-relaxed lg:flex gap-4 justify-center items-center ">
                                             <p className="dir-ltr">+966 55 947 1701</p>
                                             <p className="dir-ltr">+966 54 802 2461</p>
                                             <p className="dir-ltr">+966 57 046 4872</p>
@@ -70,17 +75,10 @@ const Contact = () => {
                                     </div>
 
                                     {/* Description (Arabic/English) */}
-                                    <div className="space-y-2 mb-8 font-semibold text-[#D97706] text-lg">
-                                        {/* <p className="font-arabic" dir="rtl">
-                                            صيانة واصلاح الماكينات وتركيب خطوط الانتاج
-                                        </p> */}
-                                        <p className="text-white text-base">
-                                            Specialized in maintaining machine production lines and installing electronic cards
-                                        </p>
-                                    </div>
+                                   
 
                                     {/* Emails */}
-                                    <div className="space-y-1 mb-6 text-[#4B5563] font-semibold text-lg flex flex-wrap justify-center items-center gap-12">
+                                    <div className="space-y-1 mb-6 text-[#4B5563] font-semibold text-lg flex flex-wrap justify-center items-center lg:gap-12 gap-4">
                                         <div className="flex items-center gap-2">
 
                                         <span>
