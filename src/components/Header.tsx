@@ -8,6 +8,7 @@ import harmtekLogo from "@/assets/harmtek-logo.jpeg";
 const navItems = [
   { label: "Home", href: "/" },
   { label: "Products", href: "/products" },
+  { label: "Brochure", href: "/harmatek-brochure.pdf" },
   { label: "About", href: "/about-us" },
   { label: "Contact", href: "/contact" },
 ];
@@ -62,6 +63,7 @@ const Header = () => {
                 href={item.href}
                 className="text-foreground/80 hover:text-primary transition-colors font-medium relative group"
                 whileHover={{ y: -2 }}
+                {...(item.href === "/harmatek-brochure.pdf" && { download: true })}
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
@@ -108,6 +110,7 @@ const Header = () => {
                   href={item.href}
                   className="text-foreground/80 hover:text-primary transition-colors font-medium py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
+                  {...(item.href === "/harmatek-brochure.pdf" && { download: true })}
                 >
                   {item.label}
                 </a>

@@ -11,18 +11,60 @@ interface ContactFormProps {
 
 const ContactForm = ({ className }: ContactFormProps) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
-
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        if (isSubmitting) return;
         setIsSubmitting(true);
 
-        // Simulate form submission
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        const formElement = e.currentTarget; // Store reference BEFORE async operation
+        const formData = new FormData(formElement);
 
-        toast.success("Message sent successfully! We'll get back to you soon.");
-        setIsSubmitting(false);
-        (e.target as HTMLFormElement).reset();
+        const payload = {
+            name: formData.get("name"),
+            email: formData.get("email"),
+            company: formData.get("company"),
+            message: formData.get("message"),
+        };
+
+        try {
+            const res = await fetch("https://harmatek.sa/contact.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload),
+            });
+
+            const data = await res.json();
+
+            if (!res.ok || !data.success) {
+                throw new Error(data.error || "Failed to send");
+            }
+
+            toast.success("Message sent successfully!", {
+                position: "top-right",
+                style: {
+                    background: '#22c55d',
+                    color: 'white',
+                    border: 'none',
+                },
+            });
+            formElement.reset(); // Use stored reference
+
+        } catch (error) {
+            console.error("Error:", error);
+            toast.error("Failed to send message", {
+                position: "top-right",
+                style: {
+                    background: '#ef4444',
+                    color: 'white',
+                    border: 'none',
+                },
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
     };
+
 
     return (
         <form
