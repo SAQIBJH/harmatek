@@ -54,18 +54,42 @@ const Footer = () => {
             <h4 className="font-display font-semibold text-foreground mb-4">
               Quick Links
             </h4>
-            <ul className="space-y-3">
-              {["Home", "Products", "About", "Contact"].map((link) => (
+            {/* <ul className="space-y-3">
+              {["Home", "Products", "Brochure", "About", "Contact"].map((link) => (
                 <li key={link}>
                   <a
-                    href={`#${link.toLowerCase()}`}
+                    href={`${link.toLowerCase() === 'about' ? '/about-us' : link.toLowerCase() }`}
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link}
                   </a>
                 </li>
               ))}
-            </ul>
+            </ul> */}
+            <ul className="space-y-3">
+            {["Home", "Products", "Brochure", "About", "Contact"].map((link) => {
+              const isBrochure = link === "Brochure";
+
+              return (
+                <li key={link}>
+                  <a
+                    href={
+                      isBrochure
+                        ? "/harmatek-brochure.pdf"
+                        : link === "About"
+                        ? "/about-us"
+                        : `/${link.toLowerCase()}`
+                    }
+                    {...(isBrochure && { download: true })}
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {link}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+
           </div>
 
           {/* Products */}
