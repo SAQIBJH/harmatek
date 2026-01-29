@@ -3,13 +3,38 @@ import { Shield, Zap, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-warehouse.png";
 import { useNavigate } from "react-router-dom";
+import electronicsEquipment from "@/assets/electric-equipment.jpg";
+import generalProfile from "@/assets/general-brochure.jpg";
+import repairLab from "@/assets/repair-lab.jpg";
+import { useIsMobile } from "@/hooks/use-mobile";
+
+const brochureData = [
+  {
+    id: 1,
+    title: "Electronics Equipment",
+    image: electronicsEquipment,
+    download: "/electric-equipment.pdf"
+  },
+  {
+    id: 2,
+    title: "General Profile",
+    image: generalProfile,
+    download: "/general-brochure.pdf"
+  },
+  {
+    id: 3,
+    title: "Lab Repair Services",
+    image: repairLab,
+    download: "/repair-lab.pdf"
+  }
+];
 
 const HeroSection = () => {
   const navigate = useNavigate();
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden pt-24"
+      className={`relative  flex items-center overflow-hidden pt-24 ${useIsMobile() ? "min-h-[70vh]" : "min-h-screen"}`}
     >
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
@@ -26,78 +51,102 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="max-w-3xl">
+      <div className={`container mx-auto px-4 lg:px-8 relative z-10 `}>
+        <div className="grid lg:grid-cols-2 gap-8">
+          <div className="max-w-3xl">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-6">
+                Industry-Leading Safety Technology
+              </span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-4xl md:text-5xl lg:text-7xl font-display font-bold leading-tight mb-6"
+            >
+              Revolutionizing{" "}
+              <span className="text-gradient-gold">Forklift Safety</span>{" "}
+              & Productivity
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl"
+            >
+              Advanced collision avoidance systems and telematics solutions
+              engineered to protect your workforce and optimize operations.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="flex flex-wrap gap-4 mb-12"
+            >
+              <Button size="lg" className="text-lg px-8 shadow-gold"
+                onClick={() => navigate("/products")}
+              >
+
+                Explore Solutions
+              </Button>
+              {/* <Button
+                variant="outline"
+                size="lg"
+                className="text-lg px-8 border-primary/50 hover:bg-primary/10"
+              >
+                Watch Demo
+              </Button> */}
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1 }}
+              className="grid grid-cols-3 gap-6 max-w-xl"
+            >
+              {[
+                { icon: Shield, label: "Safety First", value: "99.9%" },
+                { icon: Zap, label: "Response Time", value: "<50ms" },
+                { icon: Target, label: "Accuracy", value: "360°" },
+              ].map((stat, index) => (
+                <div key={index} className="text-center">
+                  <stat.icon className="w-6 h-6 text-primary mx-auto mb-2" />
+                  <p className="text-2xl md:text-3xl font-display font-bold text-foreground">
+                    {stat.value}
+                  </p>
+                  <p className="text-sm text-muted-foreground">{stat.label}</p>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-6">
-              Industry-Leading Safety Technology
-            </span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-4xl md:text-5xl lg:text-7xl font-display font-bold leading-tight mb-6"
-          >
-            Revolutionizing{" "}
-            <span className="text-gradient-gold">Forklift Safety</span>{" "}
-            & Productivity
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl"
+            className="hidden xl:grid xl:grid-cols-3 gap-6 mt-12 lg:mt-0 place-items-start justify-start"
           >
-            Advanced collision avoidance systems and telematics solutions
-            engineered to protect your workforce and optimize operations.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-wrap gap-4 mb-12"
-          >
-            <Button size="lg" className="text-lg px-8 shadow-gold"
-            onClick={() => navigate("/products")}
-            >
-
-              Explore Solutions
-            </Button>
-            {/* <Button
-              variant="outline"
-              size="lg"
-              className="text-lg px-8 border-primary/50 hover:bg-primary/10"
-            >
-              Watch Demo
-            </Button> */}
-          </motion.div>
-
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="grid grid-cols-3 gap-6 max-w-xl"
-          >
-            {[
-              { icon: Shield, label: "Safety First", value: "99.9%" },
-              { icon: Zap, label: "Response Time", value: "<50ms" },
-              { icon: Target, label: "Accuracy", value: "360°" },
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <stat.icon className="w-6 h-6 text-primary mx-auto mb-2" />
-                <p className="text-2xl md:text-3xl font-display font-bold text-foreground">
-                  {stat.value}
-                </p>
-                <p className="text-sm text-muted-foreground">{stat.label}</p>
+            {brochureData.map((brochure) => (
+              <div key={brochure.id} className="rounded-lg overflow-hidden shadow-lg w-36 relative group border-2 border-gray-600 hover:border-primary hover:border-2 pb-2 bg-black/40 backdrop-blur-sm">
+                <img
+                  src={brochure.image}
+                  alt={brochure.title}
+                  className="w-36 object-cover transform duration-500 group-hover:scale-105 h-36 rounded-lg"
+                />
+                <p className="text-white mt-0.5  text-center text-xs font-semibold p-0.5">{brochure.title}</p>
+                <div className="flex justify-center items-center pb-0.5">
+                  <a href={brochure.download} className="mt-1 w-3/4 text-white bg-primary text-center p-1 rounded-lg inline-flex justify-center items-center mx-auto text-xs"
+                    download>Download</a>
+                </div>
               </div>
             ))}
           </motion.div>

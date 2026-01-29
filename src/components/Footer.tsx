@@ -75,12 +75,12 @@ const Footer = () => {
                   <a
                     href={
                       isBrochure
-                        ? "/harmatek-brochure.pdf"
+                        ? "/brochures"
                         : link === "About"
                         ? "/about-us"
                         : `/${link.toLowerCase()}`
                     }
-                    {...(isBrochure && { download: true })}
+                    
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link}
