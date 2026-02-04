@@ -38,13 +38,16 @@ const AboutUs = () => {
                             <p>
                                 Our team combines engineering expertise with modern technologies to deliver efficient, accurate, and reliable solutions that meet our clients’ operational needs while ensuring quality, safety, and on-time delivery.
                             </p>
+                            <p className="text-center text-lg">
+                                  نحن شركة متخصصة في الخدمات الهندسية الصناعية، نقدم حلولًا متكاملة تشمل تصميم وتنفيذ الماكينات وخطوط الإنتاج بالإضافة إلى قطع الغيار والمكونات الصناعية بأعلى معايير الجوده
+                            </p>
                         </div>
 
                         {/* Images and Content Grid */}
                         <div className="grid md:grid-cols-2 gap-8 items-start max-w-6xl mx-auto">
                             <div className="space-y-4">
                                 {/* Image 1 Placeholder - Circuit Board */}
-                                <div className="rounded-lg overflow-hidden shadow-lg h-64 bg-gray-200 w-full relative group">
+                                <div className="rounded-lg overflow-hidden shadow-lg h-80 bg-gray-200 w-full relative group">
                                     <img
                                         src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop"
                                         alt="Electronic Circuit Board"
@@ -52,7 +55,7 @@ const AboutUs = () => {
                                     />
                                 </div>
                             </div>
-                            <div className="space-y-4 pt-12">
+                            <div className="space-y-4">
                                 {/* Image 2 Placeholder - Industrial Worker */}
                                 <div className="rounded-lg overflow-hidden shadow-lg h-80 bg-gray-200 w-full relative group">
                                     <img
