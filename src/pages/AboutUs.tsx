@@ -33,21 +33,10 @@ const AboutUs = () => {
                         {/* Main Content */}
                         <div className="max-w-4xl mx-auto text-center space-y-6 text-muted-foreground font-medium leading-relaxed mb-16">
                             <p>
-                                Bright solution Company has been established since 2020 in Kingdom
-                                of Saudi Arabia to provide a professional service in the field of
-                                industrial services, represented in maintenance and supply of
-                                electronic parts and electrical devices in various fields.
+                               We are a specialized industrial engineering services company providing integrated solutions in the design and manufacturing of machines, production lines, and industrial , in addition to manufacturing spare parts and industrial components with high quality standards.
                             </p>
                             <p>
-                                Bright solution covers wide industrial areas around KSA, and we
-                                have one of the most advanced electronics lab in middle east with
-                                international standard and executive material from different
-                                countries to offer over the top quality in the field. Also, we
-                                have a professional team of engineers with the greatest experience
-                                in the field. We are pleased to provide our services to all
-                                industrial sectors and medical, communications and other sectors
-                                that need equipment maintenance and specialized electronic
-                                devices.
+                                Our team combines engineering expertise with modern technologies to deliver efficient, accurate, and reliable solutions that meet our clients’ operational needs while ensuring quality, safety, and on-time delivery.
                             </p>
                         </div>
 

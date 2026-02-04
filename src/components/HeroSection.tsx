@@ -60,7 +60,7 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-6">
-                Industry-Leading Safety Technology
+                Hamratek Industrial Creative Solutions
               </span>
             </motion.div>
 
@@ -68,11 +68,9 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-4xl md:text-5xl lg:text-7xl font-display font-bold leading-tight mb-6"
+              className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl"
             >
-              Revolutionizing{" "}
-              <span className="text-gradient-gold">Forklift Safety</span>{" "}
-              & Productivity
+            We are a specialized industrial engineering services company providing integrated solutions in the design and manufacturing of machines, production lines, and industrial , in addition to manufacturing spare parts and industrial components with high quality standards. 
             </motion.h1>
 
             <motion.p
@@ -81,8 +79,15 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl"
             >
-              Advanced collision avoidance systems and telematics solutions
-              engineered to protect your workforce and optimize operations.
+              Our team combines engineering expertise with modern technologies to deliver efficient, accurate, and reliable solutions that meet our clients’ operational needs while ensuring quality, safety, and on-time delivery.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl"
+            >
+              نحن شركة متخصصة في الخدمات الهندسية الصناعية، نقدم حلولًا متكاملة تشمل تصميم وتنفيذ الماكينات وخطوط الإنتاج بالإضافة إلى قطع الغيار والمكونات الصناعية بأعلى معايير الجوده
             </motion.p>
 
             <motion.div
