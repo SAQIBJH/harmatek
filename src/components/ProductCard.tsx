@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { getProductImage } from "@/data/productImages";
 
 interface ProductCardProps {
   title: string;
@@ -16,6 +16,9 @@ const ProductCard = ({
   features,
   index,
 }: ProductCardProps) => {
+  // Get the actual image URL from the import map
+  const imageUrl = getProductImage(image);
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 60 }}
@@ -27,11 +30,15 @@ const ProductCard = ({
       {/* Image Container */}
       <div className="relative h-64 overflow-hidden bg-muted">
         <motion.img
-          src={image}
+          src={imageUrl || "/placeholder-product.png"}
           alt={title}
           className="w-full h-full object-cover"
           whileHover={{ scale: 1.08 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
+          onError={(e) => {
+            // Fallback if image fails to load
+            (e.target as HTMLImageElement).src = "/placeholder-product.png";
+          }}
         />
         {/* Overlay on hover */}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
@@ -52,14 +59,14 @@ const ProductCard = ({
 
       {/* Content */}
       <div className="p-6">
-        <h3 className="text-xl font-display font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+        <h3 className="text-xl font-display font-bold text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2">
           {title}
         </h3>
-        <p className="text-muted-foreground mb-4 line-clamp-2">{description}</p>
+        <p className="text-muted-foreground mb-4 line-clamp-3 text-sm">{description}</p>
 
         {/* Features */}
         <ul className="space-y-2 mb-6">
-          {features.map((feature, i) => (
+          {features.slice(0, 4).map((feature, i) => (
             <motion.li
               key={i}
               className="flex items-center gap-2 text-sm text-foreground/80"
@@ -69,20 +76,10 @@ const ProductCard = ({
               transition={{ delay: 0.3 + i * 0.1 }}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-              {feature}
+              <span className="line-clamp-1">{feature}</span>
             </motion.li>
           ))}
         </ul>
-
-        {/* CTA */}
-        {/* <motion.button
-          className="flex items-center gap-2 text-primary font-medium group/btn"
-          whileHover={{ x: 5 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          Learn More
-          <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-        </motion.button> */}
       </div>
 
       {/* Corner accent */}
