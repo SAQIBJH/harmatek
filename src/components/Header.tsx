@@ -8,7 +8,7 @@ import harmtekLogo from "@/assets/harmtek-logo.jpeg";
 const navItems = [
   { label: "Home", href: "/" },
   { label: "Products", href: "/products" },
-  { label: "Upload Products", href: "/upload-products" },
+  // { label: "Upload Products", href: "/upload-products" },
   { label: "Brochure", href: "/brochures" },
   { label: "About", href: "/about-us" },
   { label: "Contact", href: "/contact" },

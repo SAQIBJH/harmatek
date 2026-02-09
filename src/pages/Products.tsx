@@ -1,57 +1,62 @@
+import { useState, useMemo } from "react";
 import { Helmet } from "react-helmet-async";
+import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
+import { Button } from "@/components/ui/button";
+import { products } from "@/data/products";
 
-// Option 1: Import from separate data file (recommended for dynamic updates)
-// import { products } from "@/data/products";
-
-// Option 2: Inline data (current approach)
-import productFCAS from "@/assets/product-fcas.png";
-import productTelematics from "@/assets/product-telematics.png";
-import productCustom from "@/assets/product-custom.png";
-import {products} from "../data/products"
-
-const productss = [
-  {
-    title: "Forklift Collision Avoidance System (FCAS)",
-    description:
-      "Advanced sensor technology that detects pedestrians, objects, and other forklifts in real-time to prevent accidents.",
-    image: productFCAS,
-    features: [
-      "360° detection coverage",
-      "Real-time audio/visual alerts",
-      "Speed limiting functionality",
-      "Customizable detection zones",
-    ],
-  },
-  {
-    title: "Telematics Solutions",
-    description:
-      "Comprehensive fleet management and productivity monitoring system for data-driven warehouse optimization.",
-    image: productTelematics,
-    features: [
-      "Real-time fleet tracking",
-      "Operator performance analytics",
-      "Impact detection & reporting",
-      "Maintenance scheduling",
-    ],
-  },
-  {
-    title: "Custom Safety Solutions",
-    description:
-      "Tailored safety engineering solutions designed to meet your unique operational requirements.",
-    image: productCustom,
-    features: [
-      "In-house R&D capabilities",
-      "Modular system design",
-      "Seamless integration",
-      "Ongoing support",
-    ],
-  },
-];
+const PRODUCTS_PER_PAGE = 21;
 
 const Products = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Calculate pagination
+  const totalProducts = products.length;
+  const totalPages = Math.ceil(totalProducts / PRODUCTS_PER_PAGE);
+  
+  const paginatedProducts = useMemo(() => {
+    const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
+    return products.slice(startIndex, startIndex + PRODUCTS_PER_PAGE);
+  }, [currentPage]);
+
+  // Generate page numbers to display
+  const getPageNumbers = () => {
+    const pages: (number | string)[] = [];
+    const maxVisiblePages = 5;
+    
+    if (totalPages <= maxVisiblePages) {
+      for (let i = 1; i <= totalPages; i++) pages.push(i);
+    } else {
+      if (currentPage <= 3) {
+        for (let i = 1; i <= 4; i++) pages.push(i);
+        pages.push("...");
+        pages.push(totalPages);
+      } else if (currentPage >= totalPages - 2) {
+        pages.push(1);
+        pages.push("...");
+        for (let i = totalPages - 3; i <= totalPages; i++) pages.push(i);
+      } else {
+        pages.push(1);
+        pages.push("...");
+        for (let i = currentPage - 1; i <= currentPage + 1; i++) pages.push(i);
+        pages.push("...");
+        pages.push(totalPages);
+      }
+    }
+    return pages;
+  };
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
+  const endIndex = Math.min(startIndex + PRODUCTS_PER_PAGE, totalProducts);
+
   return (
     <>
       <Helmet>
@@ -67,7 +72,7 @@ const Products = () => {
 
         <main className="flex-grow pt-32 pb-24">
           {/* Page Header */}
-          <div className="container mx-auto px-4 lg:px-8 mb-16">
+          <div className="container mx-auto px-4 lg:px-8 mb-12">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-6">
                 Our <span className="text-gradient-gold">Products</span>
@@ -78,13 +83,92 @@ const Products = () => {
             </div>
           </div>
 
+          {/* Products Info Bar */}
+          <div className="container mx-auto px-4 lg:px-8 mb-8">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-4 px-6 bg-muted/50 rounded-lg">
+              <p className="text-muted-foreground">
+                Showing <span className="font-semibold text-foreground">{startIndex + 1}-{endIndex}</span> of{" "}
+                <span className="font-semibold text-foreground">{totalProducts}</span> products
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Page <span className="font-semibold text-foreground">{currentPage}</span> of{" "}
+                <span className="font-semibold text-foreground">{totalPages}</span>
+              </p>
+            </div>
+          </div>
+
           {/* Products Grid */}
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {products.map((product, index) => (
-                <ProductCard key={product.title} {...product} index={index} />
+            <motion.div 
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+              key={currentPage}
+            >
+              {paginatedProducts.map((product, index) => (
+                <ProductCard 
+                  key={`${currentPage}-${product.title}`} 
+                  {...product} 
+                  index={index} 
+                />
               ))}
-            </div>
+            </motion.div>
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <motion.div 
+                className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                {/* Previous Button */}
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={() => handlePageChange(currentPage - 1)}
+                  disabled={currentPage === 1}
+                  className="min-w-[120px] gap-2"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                  Previous
+                </Button>
+
+                {/* Page Numbers */}
+                <div className="flex items-center gap-1">
+                  {getPageNumbers().map((page, index) => (
+                    page === "..." ? (
+                      <span key={`ellipsis-${index}`} className="px-3 text-muted-foreground">
+                        ...
+                      </span>
+                    ) : (
+                      <Button
+                        key={page}
+                        variant={currentPage === page ? "default" : "outline"}
+                        size="icon"
+                        onClick={() => handlePageChange(page as number)}
+                        className="w-10 h-10"
+                      >
+                        {page}
+                      </Button>
+                    )
+                  ))}
+                </div>
+
+                {/* Next Button */}
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                  className="min-w-[120px] gap-2"
+                >
+                  Next
+                  <ChevronRight className="w-4 h-4" />
+                </Button>
+              </motion.div>
+            )}
 
             {/* CTA Section */}
             <div className="mt-20 text-center">
