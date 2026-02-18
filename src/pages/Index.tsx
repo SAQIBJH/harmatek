@@ -11,10 +11,10 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>HarmaTek | Forklift Safety & Collision Avoidance Systems</title>
+        <title>Industrial Engineering & Machine Manufacturing Company | Integrated Industrial Solutions</title>
         <meta
           name="description"
-          content="HarmaTek provides industry-leading forklift collision avoidance systems and telematics solutions. Enhance workplace safety and productivity with our advanced FCAS technology."
+          content="Specialized industrial engineering company offering integrated solutions in machine design, production lines manufacturing, and high-quality industrial spare parts and components."
         />
         <meta
           name="keywords"
