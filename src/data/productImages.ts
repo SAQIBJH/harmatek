@@ -2,15 +2,15 @@
 // This file imports all product images so Vite can process them
 
 // Import all webp images from assets folder
-const imageModules = import.meta.glob("@/assets/*.webp", { eager: true, import: "default" });
+const imageModules = import.meta.glob("@/assets/images/*.webp", { eager: true, import: "default" });
 
 // Convert to a simple lookup map: filename -> url
 export const productImages: Record<string, string> = {};
 
 for (const [path, url] of Object.entries(imageModules)) {
-  // Extract filename from path (e.g., "/src/assets/vfd-elw.webp" -> "vfd-elw")
+  // Extract filename from path (e.g., "/src/assets/images/vfd-elw.webp" -> "vfd-elw")
   const filename = path
-    .replace("/src/assets/", "")
+    .replace("/src/assets/images/", "")
     .replace(".webp", "");
   
   productImages[filename] = url as string;

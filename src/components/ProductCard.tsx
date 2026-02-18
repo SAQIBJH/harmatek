@@ -32,7 +32,7 @@ const ProductCard = ({
         <motion.img
           src={imageUrl || "/placeholder-product.png"}
           alt={title}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain"
           whileHover={{ scale: 1.08 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           onError={(e) => {

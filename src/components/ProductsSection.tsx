@@ -3,8 +3,9 @@ import ProductCard from "./ProductCard";
 import productFCAS from "@/assets/product-fcas.png";
 import productTelematics from "@/assets/product-telematics.png";
 import productCustom from "@/assets/product-custom.png";
+import { products } from "@/data/products";
 
-const products = [
+const productss = [
   {
     title: "Forklift Collision Avoidance System (FCAS)",
     description:
@@ -63,19 +64,42 @@ const ProductsSection = () => {
             Our Solutions
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6">
-            Innovative <span className="text-gradient-gold">Safety Technology</span>
+            Browse <span className="text-gradient-gold">Our Products</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Cutting-edge systems engineered to enhance workplace safety and
-            boost productivity in material handling operations.
+            Discover our comprehensive suite of safety and productivity solutions designed for the modern warehouse.
           </p>
         </motion.div>
 
         {/* Products Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, index) => (
+          {products.slice(0,3).map((product, index) => (
             <ProductCard key={product.title} {...product} index={index} />
           ))}
+        </div>
+
+        {/* View All Products Link */}
+        <div className="flex justify-center mt-12">
+          <a
+            href="/products"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+          >
+            View all products
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </a>
         </div>
       </div>
     </section>
