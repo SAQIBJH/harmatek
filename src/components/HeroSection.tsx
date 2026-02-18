@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import { Shield, Zap, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-warehouse.png";
+import heroImage from "@/assets/images/hero-warehouse.png";
 import { useNavigate } from "react-router-dom";
-import electronicsEquipment from "@/assets/electric-equipment.jpg";
-import generalProfile from "@/assets/general-brochure.jpg";
-import repairLab from "@/assets/repair-lab.jpg";
+import electronicsEquipment from "@/assets/images/electric-equipment.jpg";
+import generalProfile from "@/assets/images/general-brochure.jpg";
+import repairLab from "@/assets/images/repair-lab.jpg";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const brochureData = [

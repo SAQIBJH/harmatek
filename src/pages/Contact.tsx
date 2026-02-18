@@ -3,8 +3,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import { Mail, MapPin, Smartphone } from "lucide-react";
-import harmtekLogo from "@/assets/harmtek-logo.jpeg";
-import contactPage from "@/assets/contact-page.jpg";
+import harmtekLogo from "@/assets/images/harmtek-logo.jpeg";
+import contactPage from "@/assets/images/contact-page.jpg";
 
 const Contact = () => {
     return (

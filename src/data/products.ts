@@ -2,9 +2,9 @@
 // // This file is auto-generated from the Upload Products page
 // // Place your product images in: src/assets/ folder
 
-// import productFCAS from "@/assets/product-fcas.png";
-// import productTelematics from "@/assets/product-telematics.png";
-// import productCustom from "@/assets/product-custom.png";
+// import productFCAS from "@/assets/images/product-fcas.png";
+// import productTelematics from "@/assets/images/product-telematics.png";
+// import productCustom from "@/assets/images/product-custom.png";
 
 // export interface Product {
 //   title: string;

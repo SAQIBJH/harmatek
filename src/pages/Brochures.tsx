@@ -2,9 +2,9 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import electronicsEquipment from "@/assets/electric-equipment.jpg";
-import generalProfile from "@/assets/general-brochure.jpg";
-import repairLab from "@/assets/repair-lab.jpg";
+import electronicsEquipment from "@/assets/images/electric-equipment.jpg";
+import generalProfile from "@/assets/images/general-brochure.jpg";
+import repairLab from "@/assets/images/repair-lab.jpg";
 
 const brochureData = [
     {

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Linkedin, Mail } from "lucide-react";
-import harmtekLogo from "@/assets/harmtek-logo.jpeg";
+import harmtekLogo from "@/assets/images/harmtek-logo.jpeg";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import ProductCard from "./ProductCard";
-import productFCAS from "@/assets/product-fcas.png";
-import productTelematics from "@/assets/product-telematics.png";
-import productCustom from "@/assets/product-custom.png";
+import productFCAS from "@/assets/images/product-fcas.png";
+import productTelematics from "@/assets/images/product-telematics.png";
+import productCustom from "@/assets/images/product-custom.png";
 import { products } from "@/data/products";
 
 const productss = [
