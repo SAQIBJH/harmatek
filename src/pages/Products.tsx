@@ -5,6 +5,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
+import HeroSlider from "@/components/HeroSlider";
 import { Button } from "@/components/ui/button";
 import { products } from "@/data/products";
 
@@ -70,17 +71,17 @@ const Products = () => {
       <div className="min-h-screen bg-background relative overflow-hidden flex flex-col">
         <Header />
 
-        <main className="flex-grow pt-32 pb-24">
-          {/* Page Header */}
+        <main className="flex-grow pt-24 pb-24">
+          {/* Hero Slider Section */}
           <div className="container mx-auto px-4 lg:px-8 mb-12">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-6">
-                Our <span className="text-gradient-gold">Products</span>
-              </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                Discover our comprehensive suite of safety and productivity solutions designed for the modern warehouse.
-              </p>
-            </div>
+            <HeroSlider
+              title={
+                <>
+                  Our <span className="text-gradient-gold">Products</span>
+                </>
+              }
+              subtitle="Discover our comprehensive suite of safety and productivity solutions designed for the modern warehouse."
+            />
           </div>
 
           {/* Products Info Bar */}

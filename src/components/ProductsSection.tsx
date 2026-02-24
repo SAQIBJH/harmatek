@@ -1,45 +1,35 @@
 import { motion } from "framer-motion";
 import ProductCard from "./ProductCard";
-import productFCAS from "@/assets/images/product-fcas.png";
-import productTelematics from "@/assets/images/product-telematics.png";
-import productCustom from "@/assets/images/product-custom.png";
-import { products } from "@/data/products";
+import Contractors from "@/assets/productImages/aux-contact-ua-2-1a1b-front-mount-1no-1nc-for-mc-9b-mc150a.webp";
+import PowerSupplies from "@/assets/productImages/vfd-elw-vfd007el21w-1-ac-motor-drives-1-hp.webp";
+import EngineeringServices from "@/assets/images/engineering-solutions.png";
+// import { products } from "@/data/products";
 
-const productss = [
+const products = [
   {
-    title: "Forklift Collision Avoidance System (FCAS)",
+    title: "Contactors",
     description:
       "Advanced sensor technology that detects pedestrians, objects, and other forklifts in real-time to prevent accidents.",
-    image: productFCAS,
-    features: [
-      "360° detection coverage",
-      "Real-time audio/visual alerts",
-      "Speed limiting functionality",
-      "Customizable detection zones",
-    ],
+    image: Contractors,
+    features: ["Consistent performance under use", "Refined surface finish", "Long-term durability", "Easy maintenance design"],
   },
   {
-    title: "Telematics Solutions",
+    title: "Power Supplies",
     description:
       "Comprehensive fleet management and productivity monitoring system for data-driven warehouse optimization.",
-    image: productTelematics,
-    features: [
-      "Real-time fleet tracking",
-      "Operator performance analytics",
-      "Impact detection & reporting",
-      "Maintenance scheduling",
-    ],
+    image: PowerSupplies,
+    features: ["Refined surface finish", "Long-term durability", "Easy maintenance design", "Stable structural integrity"]
   },
   {
-    title: "Custom Safety Solutions",
+    title: "Engineering Services",
     description:
-      "Tailored safety engineering solutions designed to meet your unique operational requirements.",
-    image: productCustom,
+      "Advanced safety systems, industrial automation and bespoke technical support",
+    image: EngineeringServices,
     features: [
-      "In-house R&D capabilities",
-      "Modular system design",
-      "Seamless integration",
-      "Ongoing support",
+      "Design & manufacturing of custom machines",
+      "Industrial automation and process optimization solutions",
+      "High-precision industrial component manufacturing",
+      "End-to-end engineering support",
     ],
   },
 ];
@@ -73,8 +63,8 @@ const ProductsSection = () => {
 
         {/* Products Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.slice(0,3).map((product, index) => (
-            <ProductCard key={product.title} {...product} index={index} />
+          {products.map((product, index) => (
+            <ProductCard key={product.title} {...product} index={index} isProductSection />
           ))}
         </div>
 

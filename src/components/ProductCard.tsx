@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
 import { getProductImage } from "@/data/productImages";
+import { motion } from "framer-motion";
 
 interface ProductCardProps {
   title: string;
@@ -7,6 +7,7 @@ interface ProductCardProps {
   image: string;
   features: string[];
   index: number;
+  isProductSection?: boolean;
 }
 
 const ProductCard = ({
@@ -15,9 +16,10 @@ const ProductCard = ({
   image,
   features,
   index,
+  isProductSection = false,
 }: ProductCardProps) => {
-  // Get the actual image URL from the import map
-  const imageUrl = getProductImage(image);
+  // Use image directly - it's already a resolved URL from the import
+  const imageUrl = isProductSection ? image : getProductImage(image);
 
   return (
     <motion.article
