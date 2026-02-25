@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Shield, Zap, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/images/hero-warehouse.png";
+import heroImage from "@/assets/images/hero-image-5.jpg";
 import { useNavigate } from "react-router-dom";
 import electronicsEquipment from "@/assets/images/electric-equipment.jpg";
 import generalProfile from "@/assets/images/general-brochure.jpg";
